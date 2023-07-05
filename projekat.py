@@ -14,8 +14,18 @@ import sys
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QApplication, QWidget, QTabWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QGridLayout
 from temphumid import TemperatureHumidityTab
+
 from ui_automacija import Ui_MainWindow
 from PySide6.QtCore import QResource, QIODevice, QFile
+from weather import WeatherWidget
+from lights import LightControlTab
+
+
+
+from ui_automacija import Ui_MainWindow
+from PySide6.QtCore import QResource, QIODevice, QFile
+from weather import WeatherWidget
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -36,25 +46,32 @@ class MainWindow(QMainWindow):
         # Set mains window
         self.setCentralWidget(self.ui) 
         self.temperature_humidity_tab = TemperatureHumidityTab()
+       
        # Find index of page_3
         index = self.ui.stackedWidget.indexOf(self.ui.page_3)
-
+        
 # Export content of page_3
         page_3_contents = self.ui.stackedWidget.widget(index)
+        
 
 # Delete the content of page_3
         for i in reversed(range(page_3_contents.layout().count())):
           page_3_contents.layout().itemAt(i).widget().setParent(None)
+         
+          
+        
 
 # Add the  TemperatureHumidityTab in page_3
         page_3_contents.layout().addWidget(self.temperature_humidity_tab)
+     
         
         self.ui.btn_page_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex((self.ui.stackedWidget.indexOf(self.ui.page_2)) ))
         self.ui.btn_page_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex((self.ui.stackedWidget.indexOf(self.ui.page_3)) ))
-        
+       
         self.setWindowTitle("Automacija")
         self.setFixedSize(900,500)
         self.temperature_humidity_tab = TemperatureHumidityTab()
+       
        
       
       
@@ -93,4 +110,3 @@ if __name__ == '__main__':
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-

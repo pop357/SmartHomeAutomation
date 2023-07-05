@@ -1,4 +1,5 @@
 import sys
+import serial
 import random
 
 from PySide6.QtWidgets import QApplication, QWidget, QTabWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QGridLayout,QFrame
@@ -8,6 +9,8 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from qt_material import apply_stylesheet, QtStyleTools
  
+
+
 class TemperatureHumidityTab(QWidget): 
     def __init__(self): 
         super().__init__() 
@@ -32,6 +35,10 @@ class TemperatureHumidityTab(QWidget):
         self.humid_value = QLabel()
         self.humid_value.setStyleSheet("font-family: Arial; font-size: 18px; font-weight: bold; color: #1E90FF;")
 
+        self.pressure_label = QLabel("Pressure:")
+        self.pressure_label.setStyleSheet("font-family: Arial; font-size: 14px; color: #666666;")
+        self.pressure_value = QLabel()
+        self.pressure_value.setStyleSheet("font-family: Arial; font-size: 18px; font-weight: bold; color: #1E90FF;")
 
       
         
@@ -45,7 +52,8 @@ class TemperatureHumidityTab(QWidget):
         layout.addWidget(self.temp_value) 
         layout.addWidget(self.humid_label) 
         layout.addWidget(self.humid_value) 
-        
+        layout.addWidget(self.pressure_label)
+        layout.addWidget(self.pressure_value)
 
         self.setLayout(layout)
  
@@ -66,35 +74,42 @@ class TemperatureHumidityTab(QWidget):
          
         self.temp_data=[] 
         self.humid_data=[] 
+        self.pressure_data=[]
         
    
     
     def update_data(self):
-    # Generate random data
-        temp = random.uniform(20, 30)
-        humid = random.uniform(40, 60)
-
+        temp = self._extract_temp_data()
+        humid = self._extract_humid_data()
+        pressure = self._extract_pressure_data()
     # Append data to lists and keep only the last 10 values
-        self.temp_data.append(temp)
-        self.humid_data.append(humid)
+
         self.temp_data = self.temp_data[-10:]
         self.humid_data = self.humid_data[-10:]
+        self.pressure_data = self.pressure_data[-10:]
 
+        self.temp_data.append(temp)
+        self.humid_data.append(humid)
+        self.pressure_data.append(pressure)
     # Update label values
         self.temp_value.setText(f"{temp:.1f} C")
         self.humid_value.setText(f"{humid:.1f} %")
+        self.pressure_value.setText(f"{pressure:.1f} hPa")
 
     # Clear figure and plot new data
         self.figure.clear()
-       
-        
+
+
 
         ax = self.figure.add_subplot(111)
         ax.plot(self.temp_data, linestyle=':', linewidth=2, label="Temperature")
         ax.plot(self.humid_data, linestyle='-', linewidth=2, label="Humidity")
-        ax.set_title('Temperature and Humidity')
-        
+        ax.plot(self.pressure_data, linestyle='--', linewidth=2, label="Pressure")
+        ax.set_title('Temperature, Humidity and Pressure')
+
+
         ax.set_ylabel('Value')
+        
 
     # Set x and y axis labels and legend
         ax.legend(fontsize=8, facecolor='#2F4F4F', edgecolor='#D3D3D3', labelcolor='#D3D3D3',loc = 'upper left')
@@ -112,8 +127,94 @@ class TemperatureHumidityTab(QWidget):
     # Set tick colors
         ax.tick_params(axis='x', colors='#D3D3D3')
         ax.tick_params(axis='y', colors='#D3D3D3')
-    
+
         self.canvas.draw()
+
+    # TODO Rename this here and in `update_data`
+    def _extract_temp_data(self):
+        result = ser.readline()
+        result_str = result.decode()
+        
+        print(result_str)
+        
+        if not result_str:
+            return 0.0
+        result_list = result_str.split('=')
+        
+        if len (result_list) < 1 :
+            return 0.0
+
+        temp_value = ''.join(filter(lambda x: x.isdigit() or x == '.', result_list[1]))
+        if not temp_value:
+            return 0.0
+        
+        try:
+            temp = float(temp_value)
+        except ValueError:
+            return 0.0
+
+        return temp
+        
+    def _extract_humid_data(self):
+        
+        result = ser.readline()
+        result_str = result.decode()
+        
+        print(result_str)
+        if not result_str:
+            return 0.0
+        
+        result_list = result_str.split('=')
+        
+        if len(result_list)<1:
+            return 0.0
+        humid_value = ''.join(filter(lambda x: x.isdigit() or x == '.', result_list[1]))
+        
+        if not humid_value:
+            return 0.0
+        
+        try:
+            humid = float(humid_value)
+        except ValueError:
+            return 0.0
+        return humid
+    
+    def _extract_pressure_data(self):
+    # Read and convert to float
+        result = ser.readline()
+        result_str = result.decode()
+        
+        print(result_str)
+
+        if not result_str:
+            return 0.0
+
+        result_list = result_str.split('=')
+
+        if len(result_list) < 1:
+            return 0.0
+
+        pressure_value = ''.join(filter(lambda x: x.isdigit() or x == '.', result_list[1]))
+
+        if not pressure_value:
+            return 0.0
+
+        try:
+            pressure = float(pressure_value)
+        except ValueError:
+            return 0.0
+        return pressure
+     
+    def open_arduino_communication(self):
+        # Otvaranje Arduino komunikacije
+        try:
+            self.ser = serial.Serial('COM2', 9600)
+            print("Arduino communication opened successfully.")
+        except serial.SerialException as e:
+            print(f"Failed to open Arduino communication: {e}")   
+
+    
+    
 
          
 from PySide6.QtGui import QIcon
@@ -149,7 +250,7 @@ class SmartHomeAutomation(QWidget):
         self.setLayout(layout) 
  
         # Apply the Qt Material style 
-        apply_stylesheet(self, theme='dark_teal.xml')
+        apply_stylesheet(self, theme='dark_teal.xml') 
         
         
 if __name__ == "__main__":  

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'automacijadMcoGv.ui'
+## Form generated from reading UI file 'automacijaPFGFsR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.5.0
 ##
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
-    QStatusBar, QVBoxLayout, QWidget)
+    QMainWindow, QPushButton, QRadioButton, QSizePolicy,
+    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -135,12 +135,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.btn_page_3)
 
-        self.pushButton_4 = QPushButton(self.aframe)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setMinimumSize(QSize(200, 45))
-        self.pushButton_4.setMaximumSize(QSize(200, 45))
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet(u"QPushButton {\n"
+        self.btn_page_4 = QPushButton(self.aframe)
+        self.btn_page_4.setObjectName(u"btn_page_4")
+        self.btn_page_4.setMinimumSize(QSize(200, 45))
+        self.btn_page_4.setMaximumSize(QSize(200, 45))
+        self.btn_page_4.setFont(font)
+        self.btn_page_4.setStyleSheet(u"QPushButton {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "	color: rgb(154, 154, 149);\n"
 "	border: none;\n"
@@ -159,16 +159,16 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_4.setIconSize(QSize(24, 24))
+        self.btn_page_4.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_3.addWidget(self.pushButton_4)
+        self.verticalLayout_3.addWidget(self.btn_page_4)
 
-        self.pushButton_5 = QPushButton(self.aframe)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setMinimumSize(QSize(200, 45))
-        self.pushButton_5.setMaximumSize(QSize(200, 45))
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet(u"QPushButton {\n"
+        self.btn_page_5 = QPushButton(self.aframe)
+        self.btn_page_5.setObjectName(u"btn_page_5")
+        self.btn_page_5.setMinimumSize(QSize(200, 45))
+        self.btn_page_5.setMaximumSize(QSize(200, 45))
+        self.btn_page_5.setFont(font)
+        self.btn_page_5.setStyleSheet(u"QPushButton {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "	color: rgb(154, 154, 149);\n"
 "	border: none;\n"
@@ -187,9 +187,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_5.setIconSize(QSize(25, 25))
+        self.btn_page_5.setIconSize(QSize(25, 25))
 
-        self.verticalLayout_3.addWidget(self.pushButton_5)
+        self.verticalLayout_3.addWidget(self.btn_page_5)
 
 
         self.verticalLayout_4.addWidget(self.aframe)
@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
         self.Container.setFrameShadow(QFrame.Raised)
         self.stackedWidget = QStackedWidget(self.Container)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(0, 43, 691, 431))
+        self.stackedWidget.setGeometry(QRect(0, 43, 741, 441))
         self.stackedWidget.setFrameShape(QFrame.NoFrame)
         self.stackedWidget.setLineWidth(0)
         self.stackedWidget.setMidLineWidth(0)
@@ -214,6 +214,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.widget_3 = QWidget(self.page_2)
+        self.widget_3.setObjectName(u"widget_3")
+        self.verticalLayout_2 = QVBoxLayout(self.widget_3)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_5 = QLabel(self.widget_3)
+        self.label_5.setObjectName(u"label_5")
+
+        self.verticalLayout_2.addWidget(self.label_5)
+
+
+        self.verticalLayout_6.addWidget(self.widget_3)
+
         self.stackedWidget.addWidget(self.page_2)
         self.page_6 = QWidget()
         self.page_6.setObjectName(u"page_6")
@@ -238,24 +250,58 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.widget_2 = QWidget(self.page_3)
         self.widget_2.setObjectName(u"widget_2")
-        self.label_2 = QLabel(self.widget_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(500, 320, 121, 31))
-        self.label_3 = QLabel(self.widget_2)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(40, 320, 91, 31))
+        self.horizontalLayout_6 = QHBoxLayout(self.widget_2)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.label_4 = QLabel(self.widget_2)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(9, 9, 655, 128))
+
+        self.horizontalLayout_6.addWidget(self.label_4)
+
+        self.label_3 = QLabel(self.widget_2)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout_6.addWidget(self.label_3)
+
+        self.label_2 = QLabel(self.widget_2)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout_6.addWidget(self.label_2)
+
 
         self.horizontalLayout_3.addWidget(self.widget_2)
 
         self.stackedWidget.addWidget(self.page_3)
         self.page_4 = QWidget()
         self.page_4.setObjectName(u"page_4")
+        self.pushButton = QPushButton(self.page_4)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(290, 200, 75, 24))
+        self.label_6 = QLabel(self.page_4)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(260, 80, 49, 16))
+        self.label_7 = QLabel(self.page_4)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(410, 280, 49, 16))
         self.stackedWidget.addWidget(self.page_4)
         self.page_5 = QWidget()
         self.page_5.setObjectName(u"page_5")
+        self.horizontalLayout_5 = QHBoxLayout(self.page_5)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.pushButton_3 = QPushButton(self.page_5)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+
+        self.horizontalLayout_5.addWidget(self.pushButton_3)
+
+        self.pushButton_2 = QPushButton(self.page_5)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+
+        self.horizontalLayout_5.addWidget(self.pushButton_2)
+
+        self.radioButton = QRadioButton(self.page_5)
+        self.radioButton.setObjectName(u"radioButton")
+
+        self.horizontalLayout_5.addWidget(self.radioButton)
+
         self.stackedWidget.addWidget(self.page_5)
         self.miniButton = QPushButton(self.Container)
         self.miniButton.setObjectName(u"miniButton")
@@ -338,7 +384,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -348,12 +394,19 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btn_page_2.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
         self.btn_page_3.setText(QCoreApplication.translate("MainWindow", u"Temperatura i pritisak", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Klima", None))
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Svjetla", None))
+        self.btn_page_4.setText(QCoreApplication.translate("MainWindow", u"Klima", None))
+        self.btn_page_5.setText(QCoreApplication.translate("MainWindow", u"Svjetla", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:700; font-style:italic; text-decoration: underline; color:#ffffff;\">SMART HOME AUTOMATION</span></p></body></html>", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff0000;\">Temperatura: </span></p><p><span style=\" font-size:14pt;\"><br/></span></p></body></html>", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff0000;\">Pritisak: </span></p><p><span style=\" color:#ff0000;\"><br/></span></p></body></html>", None))
         self.label_4.setText("")
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff0000;\">Pritisak: </span></p><p><span style=\" color:#ff0000;\"><br/></span></p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff0000;\">Temperatura: </span></p><p><span style=\" font-size:14pt;\"><br/></span></p></body></html>", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
         self.miniButton.setText(QCoreApplication.translate("MainWindow", u"mini", None))
         self.closeButton.setText("")
         self.maxiButton.setText("")
