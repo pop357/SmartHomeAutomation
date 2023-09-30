@@ -43,6 +43,27 @@ Stay informed about the weather conditions in your area with the **Weather Infor
 
 - **Pressure:** Atmospheric pressure, which can be useful for weather forecasting.
 
+
+### Prerequisites
+Before you begin, ensure you have met the following requirements:
+
+***Arduino IDE***: You will need the Arduino IDE installed to program the Arduino board and upload the code to it.
+
+***Python***: Your project requires Python to run. Make sure you have Python installed. You can download it from Python's official website.
+
+***Python Libraries***: You need the following Python libraries installed. You can install them using pip:
+
+***PySide6***: Install using pip install PySide6.
+***matplotlib***: Install using pip install matplotlib.
+***qt_material***: Install using pip install qt_material.
+Serial Communication:  Project uses serial communication between Python and Arduino. Ensure that the Arduino board is correctly connected to your computer via USB.
+
+Arduino Code: You'll need the Arduino code uploaded to your Arduino board. The Arduino code should be compatible with your hardware setup and match the communication protocol expected by your Python application.
+
+Hardware Components: Make sure you have the required hardware components connected to your Arduino board as specified in your Arduino code and Python application. This might include sensors, LEDs, or other devices.
+
+Ensure you have these prerequisites in place to run your project successfully. Additionally, provide any specific details or configurations that users or contributors need to know to set up the hardware and software correctly.
+
 ### Arduino Integration
   One of the key features of our project is the integration of Arduino microcontrollers as actuators. Here's how Arduino enhances our home automation system:
   
