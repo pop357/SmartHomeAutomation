@@ -27,7 +27,7 @@ void setup() {
   pinMode(lGreenPin, OUTPUT);    
   pinMode(lBluePin, OUTPUT);     
 
-  if (!bme.begin(0x76)) { // Inicijalizacija BME280 senzora
+  if (!bme.begin(0x76)) { 
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
   }
@@ -39,18 +39,17 @@ void loop() {
   if (stringComplete) 
    {
 
-    // Izvrši odgovarajuću akciju na temelju komande
+    
     if (inputString.startsWith("analogWrite")) {
       // Parsiraj komandu kako bi dobio vrijednosti pina i intenziteta
       int spaceIndex = inputString.indexOf(' ');
       int pin = inputString.substring(spaceIndex + 1, inputString.indexOf(' ', spaceIndex + 1)).toInt();
       int intensity = inputString.substring(inputString.lastIndexOf(' ') + 1).toInt();
-      //Serial.println("Analog Write pin: "+String(pin)+" intenzitet "+String(intensity));
-      // Postavi analogni izlaz na određenom pinu
+     
       analogWrite(pin, intensity);
     }
     else if (inputString.startsWith("LightOn")) {
-      //Serial.println("Uklj");
+     
       
       
       analogWrite(lRedPin, 0);  
@@ -87,7 +86,7 @@ void loop() {
       analogWrite(kBluePin,255);
     }
 
-    // clear the string:
+    
     inputString = "";
     stringComplete = false;
   }
