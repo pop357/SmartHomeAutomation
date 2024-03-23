@@ -49,7 +49,7 @@ Before you begin, ensure you have met the following requirements:
 
 ***Arduino IDE***: You will need the Arduino IDE installed to program the Arduino board and upload the code to it.
 
-***Python***: Your project requires Python to run. Make sure you have Python installed. You can download it from Python's official website.
+***Python***: This project requires Python to run. Make sure you have Python installed. You can download it from Python's official website.
 
 ***Python Libraries***: You need the following Python libraries installed. You can install them using pip:
 
