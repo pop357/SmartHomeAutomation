@@ -65,7 +65,7 @@ Hardware Components: Make sure you have the required hardware components connect
 Ensure you have these prerequisites in place to run your project successfully. Additionally, provide any specific details or configurations that users or contributors need to know to set up the hardware and software correctly.
 
 ### Arduino Integration
-  One of the key features of our project is the integration of Arduino microcontrollers as actuators. Here's how Arduino enhances our home automation system:
+  One of the key features of this project is the integration of Arduino microcontrollers as actuators. Here's how Arduino enhances our home automation system:
   
   **Serial Communication**: Arduino acts as an intermediary between the GUI application and hardware components. It communicates with the Python application through a serial connection.
   
